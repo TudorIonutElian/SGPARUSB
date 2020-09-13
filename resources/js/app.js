@@ -17,6 +17,7 @@ Vue.use(VueRouter);
 import HomeComponent from './components/Home.vue';
 import OrdonatoriCredite from './components/OrdonatoriCredite.vue';
 import Institutii from './components/Institutii.vue';
+import Institutie from './components/Institutie.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -24,7 +25,8 @@ const router = new VueRouter({
     routes: [
       { path: '/', component: HomeComponent },
       { path: '/ordonatori', component: OrdonatoriCredite },
-      { path: '/institutii', component: Institutii }
+      { path: '/institutii', component: Institutii },
+      { path: '/institutie', component: Institutie }
     ]
   });
 
@@ -42,6 +44,7 @@ const router = new VueRouter({
 Vue.component('home', require('./components/Home.vue').default);
 Vue.component('ordonatori-credite', require('./components/OrdonatoriCredite.vue'));
 Vue.component('institutii', require('./components/Institutii.vue'));
+Vue.component('institutie', require('./components/Institutie.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
