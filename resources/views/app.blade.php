@@ -12,7 +12,7 @@
     </head>
     <body class="antialiased">
         <div id="app">
-            <home-component></home-component>
+            <router-view></router-view>
         </div>
 
     <script src="{{ asset('js/app.js')}}"></script>

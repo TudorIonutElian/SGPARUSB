@@ -8,6 +8,26 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
+
+/* Importare Vue Components START */
+
+import HomeComponent from './components/Home.vue';
+import OrdonatoriCredite from './components/OrdonatoriCredite.vue';
+import Institutii from './components/Institutii.vue';
+
+const router = new VueRouter({
+    mode: 'history',
+    base: __dirname,
+    routes: [
+      { path: '/', component: HomeComponent },
+      { path: '/ordonatori', component: OrdonatoriCredite },
+      { path: '/institutii', component: Institutii }
+    ]
+  });
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,7 +39,9 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('home-component', require('./components/HomeComponent.vue').default);
+Vue.component('home', require('./components/Home.vue').default);
+Vue.component('ordonatori-credite', require('./components/OrdonatoriCredite.vue'));
+Vue.component('institutii', require('./components/Institutii.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,5 +50,6 @@ Vue.component('home-component', require('./components/HomeComponent.vue').defaul
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router: router
 });
